@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %} Contact {% endblock %}
+
+{% block body %}
+    <!--====== CONTACT PART START ======-->
+    {% if messages %} <!-- message part start -->
+    <ul class="messages">
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %} <!-- message part ends -->
+
+    <section id="contact-page" class="pt-90 pb-120 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-from">
+                        <div class="section-title">
+                            <h5>Contact Us</h5>
+                            <h2>Keep in touch</h2>
+                        </div> <!-- section title -->
+                        <div class="main-form pt-45">
+                            <form id="contact-form" action="/contact/" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="singel-form form-group">
+                                            <input name="name" type="text" placeholder="Your name" data-error="Name is required." required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="singel-form form-group">
+                                            <input name="email" type="email" placeholder="Email" data-error="Valid email is required." required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="singel-form form-group">
+                                            <input name="subject" type="text" placeholder="Subject" data-error="Subject is required." required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form --> 
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="singel-form form-group">
+                                            <input name="phone" type="text" placeholder="Phone" data-error="Phone is required." required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form -->
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="singel-form form-group">
+                                            <textarea name="messege" placeholder="Messege" data-error="Please,leave us a message." required="required"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form -->
+                                    </div>
+                                    <p class="form-message"></p>
+                                    <div class="col-md-12">
+                                        <div class="singel-form">
+                                            <button type="submit" class="main-btn">Send</button>
+                                        </div> <!-- singel form -->
+                                    </div> 
+                                </div> <!-- row -->
+                            </form>
+                        </div> <!-- main form -->
+                    </div> <!--  contact from -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-address">
+                        <div class="contact-heading">
+                            <h5>Address</h5>
+                            <p>If you have any further questions, please don’t hesitate to contact me.</p>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="singel-address">
+                                    <div class="icon">
+                                        <i class="fa fa-home"></i>
+                                    </div>
+                                    <div class="cont">
+                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                    </div>
+                                </div> <!-- singel address -->
+                            </li>
+                            <li>
+                                <div class="singel-address">
+                                    <div class="icon">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="cont">
+                                        <p>+3 123 456 789</p>
+                                        <p>+1 222 345 342</p>
+                                    </div>
+                                </div> <!-- singel address -->
+                            </li>
+                            <li>
+                                <div class="singel-address">
+                                    <div class="icon">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                    <div class="cont">
+                                        <p>info@yourmail.com</p>
+                                        <p>info@yourmail.com</p>
+                                    </div>
+                                </div> <!-- singel address -->
+                            </li>
+                            <li>
+                                <div class="singel-address">
+                                    <div class="icon">
+                                        <i class="fa fa-globe"></i>
+                                    </div>
+                                    <div class="cont">
+                                        <p>www.yoursite.com</p>
+                                        <p>www.example.com</p>
+                                    </div>
+                                </div> <!-- singel address -->
+                            </li>
+                        </ul>
+                    </div> <!-- contact address -->
+                
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+{% endblock %}
